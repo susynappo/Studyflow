@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1 class="page-title">Piano settimanale 📅</h1>
+
+<div class="week-grid">
+{% for day, exams in weekly_plan.items() %}
+    <div class="day-card">
+        <h2>{{ day }}</h2>
+
+        {% if exams %}
+            {% for e in exams %}
+                <div class="task">
+                    <span>{{ e.exam }}</span>
+                    <strong>{{ e.hours }}h</strong>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">Riposo 🎉</p>
+        {% endif %}
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

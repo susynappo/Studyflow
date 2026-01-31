@@ -1,0 +1,22 @@
+[
+    {
+        "id": "c7f70875-4632-43a0-a1df-714b669d9816",
+        "name": "ASD",
+        "cfu": 12,
+        "difficulty": 3,
+        "exam_date": "2026-02-17",
+        "hours_completed": 1.5,
+        "planned_hours": 30.0,
+        "progress": 5
+    },
+    {
+        "id": "523c0bb0-c2e2-4a4b-893f-6c47476a5123",
+        "name": "Analisi 1",
+        "cfu": 12,
+        "difficulty": 3,
+        "exam_date": "2026-03-26",
+        "hours_completed": 3.5,
+        "planned_hours": 30.0,
+        "progress": 11
+    }
+]

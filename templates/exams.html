@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1 class="page-title">Elenco Esami</h1>
+
+{% for exam in exams %}
+<div class="exam card">
+
+    <p><strong>{{ exam.name }}</strong> — {{ exam.cfu }} CFU</p>
+    <p>Data esame: {{ exam.exam_date }}</p>
+
+    <!-- Progress bar -->
+    <div class="progress">
+        <div class="progress-fill" style="width: {{ exam.progress }}%;"></div>
+    </div>
+
+    <p>
+        {{ exam.progress }}%
+        <span style="opacity: 0.7; font-size: 0.9rem;">
+            ({{ exam.hours_completed }}h / {{ exam.planned_hours }}h)
+        </span>
+    </p>
+
+    <!-- Form aggiornamento ore -->
+    <form method="POST" action="{{ url_for('update_progress') }}">
+        <input type="hidden" name="exam_id" value="{{ exam.id }}">
+
+        <input
+            type="number"
+            name="hours"
+            min="0"
+            step="0.5"
+            placeholder="+ ore"
+            style="width: 80px;"
+        >
+
+        <button type="submit" class="btn">
+            Aggiungi ore
+        </button>
+    </form>
+
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,253 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: #1f2933;
+    color: #e5e7eb;
+    animation: page-fade 0.45s ease;
+}
+
+/* Transizione tra pagine */
+@keyframes page-fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   HEADER & NAV
+========================= */
+header {
+    background: #0f766e;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 18px 18px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background: #0f766e;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background: #115e59;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CONTAINER & CARD
+========================= */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: #111827;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   FORM
+========================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+input,
+select {
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid #374151;
+    background: #1f2933;
+    color: #e5e7eb;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0f766e;
+}
+
+button {
+    margin-top: 10px;
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 9999px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #115e59;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   WELCOME PAGE (DASHBOARD)
+========================= */
+.welcome-page {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Typing title */
+.welcome-title {
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: #0f766e; /* VERDE PETROLIO */
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #0f766e;
+    width: 0;
+    animation: typing 1.8s steps(20) forwards,
+               blink 0.8s infinite;
+}
+
+@keyframes typing {
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.welcome-subtitle {
+    margin-top: 28px;
+    font-size: 1.4rem;
+    color: #cbd5e1;
+    opacity: 0;
+    animation: subtitle-fade 1s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes subtitle-fade {
+    to { opacity: 1; }
+}
+
+/* =========================
+   EXAMS & PROGRESS
+========================= */
+.exam {
+    padding: 18px;
+    border-radius: 14px;
+    background: #1f2933;
+    margin-bottom: 18px;
+}
+
+.progress {
+    background: #374151;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    background: #0f766e;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+/* =========================
+   WEEKLY PLAN
+========================= */
+.page-title {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 45px;
+}
+
+.week-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.day-card {
+    background: #111827;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.day-card h2 {
+    margin-bottom: 14px;
+    color: #5eead4;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.empty {
+    opacity: 0.6;
+}
+
+/* =========================
+   STATS (GRAFICO)
+========================= */
+/* =========================
+   STATS (GRAFICO)
+========================= */
+.chart-box {
+    width: 100%;
+    max-width: 1200px;
+    height: 55vh;          /* ⬅️ più alto = più spazioso */
+    margin: 40px auto;     /* ⬅️ spazio sopra e sotto */
+    padding: 30px;
+    background: #111827;
+    border-radius: 22px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #9ca3af;
+}

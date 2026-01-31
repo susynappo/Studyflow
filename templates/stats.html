@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1 class="page-title">Statistiche 📊</h1>
+
+<div class="chart-wrapper" style="height: 50vh;"> <!-- 50vh = 50% dell'altezza della finestra -->
+    <canvas id="progressChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const ctx = document.getElementById('progressChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                {% for exam in exams %}
+                    "{{ exam.name }}",
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Progresso (%)',
+                data: [
+                    {% for exam in exams %}
+                        {{ exam.progress }},
+                    {% endfor %}
+                ],
+                backgroundColor: '#0f766e',
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // necessario per usare l'altezza del div
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: value => value + "%"
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+});
+</script>
+{% endblock %}

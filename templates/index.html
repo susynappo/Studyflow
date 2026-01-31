@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Piano di Studio</title>
+
+    <!-- CSS PERSONALIZZATO -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='progetto.css') }}">
+
+</head>
+<body>
+
+</head>
+<body>
+
+<nav>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+    <a href="{{ url_for('add_exam') }}">Aggiungi esame</a> |
+    <a href="{{ url_for('exams_page') }}">Esami</a>
+    <a href="{{ url_for('schedule_page') }}">Piano di studio</a> |
+    <a href="{{ url_for('stats_page') }}">Statistiche</a>
+</nav>
+
+<hr>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
+
